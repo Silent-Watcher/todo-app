@@ -9,7 +9,7 @@ body {
   margin: 0px;
   font-family: "Open Sans";
   font-size: 14px;
-  font-smoothing: antialiased;
+  /* font-smoothing: antialiased; */
 }
 
 .page {
@@ -267,3 +267,5 @@ body {
 .clear {
   clear: both;
 }
+
+

@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title><?= SITE_TITLE ?></title>
+    <link rel='stylesheet' href='https://pro.fontawesome.com/releases/v5.10.0/css/all.css' integrity='sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p' crossorigin='anonymous'/>
     <link rel="stylesheet" href="<?=BASE_URL?>assets/css/style.css" />
   </head>
   <body>
@@ -28,14 +29,28 @@
               <input type="search" placeholder="Search" />
             </div>
           </div>
-          <div class="menu">
-            <div class="title">Navigation</div>
+          <div class="menu" style="position: relative;">
+            <div class="title">folders</div>
             <ul>
-              <li><i class="fa fa-home"></i>Home</li>
-              <li><i class="fa fa-signal"></i>Activity</li>
-              <li class="active"><i class="fa fa-tasks"></i>Manage Tasks</li>
-              <li><i class="fa fa-envelope"></i>Messages</li>
-            </ul>
+
+              <!-- get folders from database -->
+              <?php foreach ($folderNames as $key => $value):?>
+               <a style="text-decoration:none;color:#404040;" href="?folderID=<?=$value->id?>">
+                <li style="display: flex; justify-content: space-between; align-items: center;">
+                  <i class="fa fa-folder"></i><?= $value->name ?>
+                  <a style ="font-size:15px;color: #e36f6f;" href="?deleteFolder=<?=$value->id?>"><i style="font-size:15px;" class="fas fa-trash"></i></a>
+                </li>
+               </a>
+                
+                <?php endforeach;?>
+              <!-- get folders from database -->
+
+                <li class="active"><i class="fa fa-folder"></i>current folder</li>
+              </ul>
+              <!-- create new folders -->
+              <input style="border: 1px solid #efefef; padding: 5px 10px ; width: 70%;outline: 0;" type="text" name="addFolder" id="addFolderIput" placeholder="add new folder ..">
+              <button style="position: absolute; right: 39px ; display: inline-flex; height: 27px ; justify-content: center; align-items: center; font-size: 20px; border: 1px solid #30b930; color: #30b930;cursor: pointer;" id="addNewFolderBtn">+</button>
+              <!-- create new folders -->
           </div>
         </div>
         <div class="view">

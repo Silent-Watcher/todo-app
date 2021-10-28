@@ -1,6 +1,6 @@
 <?php 
-include "config.php";
 include "libs/helper.php";
+include "config.php";
 include "vendor/autoload.php";
 include "constants.php";
 // check connection
@@ -19,5 +19,5 @@ try {
     in line : {$pdoErr->getLine()}");
 }
 // check connection
-include "libs/lib-Tasks.php";
 include "libs/lib-auth.php";
+include "libs/lib-Tasks.php";
