@@ -8,6 +8,7 @@
   </head>
   <body>
     <!-- partial:index.partial.html -->
+ 
     <div class="page">
       <div class="pageHeader">
         <div class="title">Dashboard</div>
@@ -48,8 +49,8 @@
                 <!-- <li class="active"><i class="fa fa-folder"></i>current folder</li> -->
               </ul>
               <!-- create new folders -->
-              <input style="border: 1px solid #efefef; padding: 5px 10px ; width: 70%;outline: 0;" type="text" name="addFolder" id="addFolderIput" placeholder="add new folder ..">
-              <button class="addFolder" style="position: absolute; right: 39px ; display: inline-flex; height: 27px ; justify-content: center; align-items: center; font-size: 20px; border: 1px solid #30b930; color: #30b930;cursor: pointer;" id="addNewFolderBtn">+</button>
+              <input style="border-radius:4px;border: 1px solid #efefef; padding: 5px 10px ; width: 70%;outline: 0;" type="text" name="addFolder" id="addFolderIput" placeholder="add new folder ..">
+              <button class="addFolder" style="position: absolute; right: 39px ; display: inline-flex; height: 27px ; justify-content: center; align-items: center; font-size: 25px; border: 2px solid #30b930; color: #30b930;cursor: pointer;" id="addNewFolderBtn"><span class="plusBTN">+</span></button>
               <!-- create new folders -->
           </div>
         </div>

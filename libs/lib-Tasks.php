@@ -1,6 +1,6 @@
 <?php 
 
-
+defined("BASE_PATH") or die("permission denied");
 
 // get currrent user folders from database
 function getFolders(){

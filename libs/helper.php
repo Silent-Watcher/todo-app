@@ -1,5 +1,5 @@
 <?php 
-
+defined("BASE_PATH") or die("permission denied");
 function diePage(string $string){
     echo "<div style =' width: 80%; 
             text-align: center; 
