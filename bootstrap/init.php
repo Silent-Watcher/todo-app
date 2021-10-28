@@ -1,8 +1,8 @@
 <?php 
-include "libs/helper.php";
-include "config.php";
-include "vendor/autoload.php";
 include "constants.php";
+include BASE_PATH."libs/helper.php";
+include BASE_PATH."bootstrap/config.php";
+include BASE_PATH."vendor/autoload.php";
 // check connection
 try {
     
@@ -19,5 +19,5 @@ try {
     in line : {$pdoErr->getLine()}");
 }
 // check connection
-include "libs/lib-auth.php";
-include "libs/lib-Tasks.php";
+include BASE_PATH."libs/lib-auth.php";
+include BASE_PATH."libs/lib-Tasks.php";

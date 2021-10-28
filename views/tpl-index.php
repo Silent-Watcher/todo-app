@@ -31,7 +31,7 @@
           </div>
           <div class="menu" style="position: relative;">
             <div class="title">folders</div>
-            <ul>
+            <ul class="folderList">
 
               <!-- get folders from database -->
               <?php foreach ($folderNames as $key => $value):?>
@@ -45,11 +45,11 @@
                 <?php endforeach;?>
               <!-- get folders from database -->
 
-                <li class="active"><i class="fa fa-folder"></i>current folder</li>
+                <!-- <li class="active"><i class="fa fa-folder"></i>current folder</li> -->
               </ul>
               <!-- create new folders -->
               <input style="border: 1px solid #efefef; padding: 5px 10px ; width: 70%;outline: 0;" type="text" name="addFolder" id="addFolderIput" placeholder="add new folder ..">
-              <button style="position: absolute; right: 39px ; display: inline-flex; height: 27px ; justify-content: center; align-items: center; font-size: 20px; border: 1px solid #30b930; color: #30b930;cursor: pointer;" id="addNewFolderBtn">+</button>
+              <button class="addFolder" style="position: absolute; right: 39px ; display: inline-flex; height: 27px ; justify-content: center; align-items: center; font-size: 20px; border: 1px solid #30b930; color: #30b930;cursor: pointer;" id="addNewFolderBtn">+</button>
               <!-- create new folders -->
           </div>
         </div>
@@ -103,7 +103,7 @@
       </div>
     </div>
     <!-- partial -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src='https://code.jquery.com/jquery-3.6.0.min.js' integrity='sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=' crossorigin='anonymous'></script>
     <script src="<?=BASE_URL?>assets/js/script.js"></script>
   </body>
 </html>
