@@ -2,6 +2,17 @@
 
 defined("BASE_PATH") or die("permission denied");
 
+/*folders functions */
+
+// delete folder from database
+function deleteFolder($folderId = null){
+    global $db;
+    $sql = "DELETE FROM folders where id = {$folderId};";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+}
+// 
+
 // get currrent user folders from database
 function getFolders(){
     global $db;
@@ -15,14 +26,6 @@ function getFolders(){
 // get currrent user folders from database
 
 
-// delete folder from database
-function deleteFolder($folderId = null){
-    global $db;
-    $sql = "DELETE FROM folders where id = {$folderId};";
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
-}
-// 
 
 // get folder info 
 function getFolderInfo( string $folderName = null){
@@ -44,4 +47,34 @@ function addFolder(string $folderName = null){
     $folderInfo = getFolderInfo($folderName);
     return $folderInfo["id"] ;
 }
+/*folders functions */
+
+
+/*tasks */
+
+// delete tasks
+function deleteTask(int $taskId = null){
+    global $db;
+    $sql = "DELETE FROM tasks where id = {$taskId};";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+}
+// delete tasks
+
+//get tasks
+function getTasks(){
+    global $db;
+    $currentUserId = getCurrentUserId();
+    $folderId = ($_GET["folderID"]) ?? null ;
+    $folderCon="";
+    if(isset($folderId) and is_numeric($folderId)){
+        $folderCon = "and folder_id = {$folderId};";
+    }
+    $sql = "SELECT * FROM tasks WHERE user_id = {$currentUserId} {$folderCon} ";
+    $stmt = $db-> prepare($sql);
+    $stmt-> execute();
+    $folders = $stmt->fetchAll(PDO::FETCH_OBJ);
+    return $folders;
+}
+//get tasks
 

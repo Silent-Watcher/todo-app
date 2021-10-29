@@ -33,24 +33,23 @@
           <div class="menu" style="position: relative;">
             <div class="title">folders</div>
             <ul class="folderList">
-
+              <a href="?folderID=<?=null?>" class="default <?= empty($_GET["folderID"]) || !isset($_GET["folderID"]) ? "active" : "";?>"><li ><i class="fa fa-folder"></i>ALL</li></a>
               <!-- get folders from database -->
               <?php foreach ($folderNames as $key => $value):?>
                <a style="text-decoration:none;color:#404040;" href="?folderID=<?=$value->id?>">
-                <li style="display: flex; justify-content: space-between; align-items: center;">
+                <li class="folderItem <?= @$_GET["folderID"] == $value->id ?"active" :"";?>">
                   <i class="fa fa-folder"></i><?= $value->name ?>
-                  <a style ="font-size:15px;color: #e36f6f;" href="?deleteFolder=<?=$value->id?>"><i style="font-size:15px;" class="fas fa-trash"></i></a>
+                  <a class="folderTrash" onclick="return confirm('are you sure to delete this folder ?');"  style ="font-size:15px;color: #e36f6f;" href="?deleteFolder=<?=$value->id?>"><i style="font-size:15px;" class="fas fa-trash"></i></a>
                 </li>
                </a>
                 
                 <?php endforeach;?>
               <!-- get folders from database -->
 
-                <!-- <li class="active"><i class="fa fa-folder"></i>current folder</li> -->
               </ul>
               <!-- create new folders -->
-              <input style="border-radius:4px;border: 1px solid #efefef; padding: 5px 10px ; width: 70%;outline: 0;" type="text" name="addFolder" id="addFolderIput" placeholder="add new folder ..">
-              <button class="addFolder" style="position: absolute; right: 39px ; display: inline-flex; height: 27px ; justify-content: center; align-items: center; font-size: 25px; border: 2px solid #30b930; color: #30b930;cursor: pointer;" id="addNewFolderBtn"><span class="plusBTN">+</span></button>
+              <input style="font-family: vazir;border-radius:4px;border: 1px solid #efefef; padding: 5px 10px ; width: 70%;outline: 0;" type="text" name="addFolder" id="addFolderIput" placeholder="add new folder ..">
+              <button class="addFolder" style="position: absolute; right: 39px ; display: inline-flex; height: 33px ; justify-content: center; align-items: center; font-size: 25px;color: #30b930;cursor: pointer;" id="addNewFolderBtn"><span class="plusBTN">+</span></button>
               <!-- create new folders -->
           </div>
         </div>
@@ -65,41 +64,27 @@
           </div>
           <div class="content">
             <div class="list">
-              <div class="title">Today</div>
+              <div class="title">Tasks</div>
               <ul>
-                <li class="checked">
-                  <i class="fa fa-check-square-o"></i
-                  ><span>Update team page</span>
+                <?php if(sizeof($tasks)): ?>
+                <!-- get tasks from database -->
+                <?php foreach($tasks as $key => $value):?>
+                <li class=<?= ($value->is_done) ? "checked":"";?>>
+                  <i style="cursor:pointer;" class="fa <?=($value->is_done) ? " fa-check-square-o":" fa-square-o";?>"></i         
+                  ><span style="margin-left:10px;"><?= $value->title;?></span>
                   <div class="info">
-                    <div class="button green">In progress</div>
-                    <span>Complete by 25/04/2014</span>
+                    <span class="taskDate">created at <?= $value->created_at; ?></span>
+                    <a style ="font-size:15px;color: #e36f6f;margin-right:10px;" 
+                       href="?deleteTask=<?=$value->id?>" onclick="return confirm('are you sure ?');"><i style="font-size:15px;" class="fas fa-trash"></i></a>
                   </div>
                 </li>
-                <li>
-                  <i class="fa fa-square-o"></i><span>Design a new logo</span>
-                  <div class="info">
-                    <div class="button">Pending</div>
-                    <span>Complete by 10/04/2014</span>
-                  </div>
-                </li>
-                <li>
-                  <i class="fa fa-square-o"></i
-                  ><span>Find a front end developer</span>
-                  <div class="info"></div>
-                </li>
+                <?php endforeach;?>
+                <!-- get tasks from database -->
+                <?php else:?>
+                  <li>no task here :(</li>
+                <?php endif; ?>
               </ul>
             </div>
-            <div class="list">
-              <div class="title">Tomorrow</div>
-              <ul>
-                <li>
-                  <i class="fa fa-square-o"></i
-                  ><span>Find front end developer</span>
-                  <div class="info"></div>
-                </li>
-              </ul>
-            </div>
-          </div>
         </div>
       </div>
     </div>

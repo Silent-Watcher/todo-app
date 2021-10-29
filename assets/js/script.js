@@ -9,7 +9,6 @@ jQuery(document).ready(function ($) {
       method: "post",
       data: { action: "addFolder", folderName: inputValue },
       success: (response) => {
-
         if (response != 0) {
           // alert(`folder with name ${inputValue} successsfully added`);
           $("ul.folderList").append(
@@ -17,7 +16,7 @@ jQuery(document).ready(function ($) {
               response +
               '"> <li style="display: flex; justify-content: space-between; align-items: center;"> <i class="fa fa-folder"></i>' +
               inputValue +
-              '<a style ="font-size:15px;color: #e36f6f;" href="?deleteFolder=' +
+              '<a  style ="font-size:15px;color: #e36f6f;" href="?deleteFolder=' +
               response +
               '"><i style="font-size:15px;" class="fas fa-trash"></i></a> </li> </a>'
           );
@@ -30,5 +29,9 @@ jQuery(document).ready(function ($) {
         console.log(response);
       },
     });
+  });
+  //
+  $(".folderTrash").click(function () {
+    return confirm("are you sure?");
   });
 });

@@ -9,9 +9,14 @@ body {
   margin: 0px;
   font-family: "Open Sans";
   font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-content: inherit;
   /* font-smoothing: antialiased; */
 }
-
+a {
+  text-decoration: none !important;
+}
 .page {
   position: absolute;
   width: 80%;
@@ -60,7 +65,7 @@ body {
   line-height: 40px;
   padding: 0px 20px;
   font-weight: 600;
-  font-size: 1.0em;
+  font-size: 1em;
 }
 .pageHeader .userPanel img {
   float: right;
@@ -114,7 +119,7 @@ body {
 }
 .main .nav .menu .title {
   font-weight: 700;
-  font-size: 1.0em;
+  font-size: 1em;
   text-transform: uppercase;
 }
 .main .nav .menu ul {
@@ -133,8 +138,20 @@ body {
   border-radius: 4px;
   transition: 0.25s all;
 }
-.main .nav .menu ul li.active {
-  color: #79BC46;
+.main .nav .menu ul li a {
+  color: #404040;
+}
+ul.folderList a:nth-child(1){
+  color: #404040;
+}
+ul.folderList a.active{
+  color: #79bc46 !important;
+}
+.main .nav .menu ul li.active a:nth-child(1) {
+  color: #79bc46 !important;
+}
+.main .nav .menu ul li a:active {
+  color: #303030;
 }
 .main .nav .menu ul li:hover {
   background-color: #999;
@@ -155,14 +172,14 @@ body {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  border-bottom: 1px solid #E0E0E0;
+  border-bottom: 1px solid #e0e0e0;
 }
 .main .view .viewHeader .title {
   float: left;
   font-size: 1.4em;
   font-weight: 400;
   padding: 0px;
-  color: #AAA;
+  color: #aaa;
   margin-top: -18px;
 }
 .main .view .viewHeader .functions {
@@ -172,7 +189,7 @@ body {
   float: right;
   height: 30px;
   line-height: 30px;
-  background-color: #AAA;
+  background-color: #aaa;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
@@ -187,9 +204,9 @@ body {
 }
 .main .view .viewHeader .functions .button.inverz {
   background-color: inherit;
-  border: 1px solid #AAA;
+  border: 1px solid #aaa;
   width: 10px;
-  color: #AAA;
+  color: #aaa;
   font-size: 1.3em;
   padding-left: 10px;
   padding-right: 16px;
@@ -219,21 +236,22 @@ body {
   height: 50px;
   line-height: 50px;
   list-style: none;
-  border-top: 1px solid #AAA;
+  border-top: 1px solid #aaa;
 }
 .main .view .content .list ul li.checked {
-  background-color: #F0F4F5;
+  background-color: #f0f4f5;
 }
 .main .view .content .list ul li:last-child {
-  border-bottom: 1px solid #AAA;
+  border-bottom: 1px solid #aaa;
 }
 .main .view .content .list ul li i {
   float: left;
-  width: 30px;
-  height: 50px;
-  line-height: 50px;
+  /* width: 30px; */
+  /* height: 50px; */
+  /* line-height: 50px; */
   margin-left: 10px;
   font-size: 1.3em;
+  margin-top: 17px;
 }
 .main .view .content .list ul li span {
   float: left;
@@ -250,7 +268,7 @@ body {
   width: 100px;
   height: 30px;
   line-height: 30px;
-  background-color: #AAA;
+  background-color: #aaa;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
@@ -261,26 +279,42 @@ body {
   font-weight: 700;
 }
 .main .view .content .list ul li .info .button.green {
-  background-color: #85C157;
+  background-color: #85c157;
 }
 
 .clear {
   clear: both;
 }
-
-.addFolder:hover{
-  background-color: rgb(182, 204, 182);
+.addFolder {
+  border: 2px solid transparent;
+  transition: all 0.4s ease;
+  background-color: transparent;
+}
+.addFolder:hover {
   color: #f5f5f5;
+  border: 2px solid #30b930;
 }
 
-.anim{
-  animation: rotate 1s linear  infinite ;
+.anim {
+  animation: rotate 1s linear infinite;
 }
 @keyframes rotate {
-  0%{
+  0% {
     transform: rotate(0);
   }
-  100%{
+  100% {
     transform: rotate(360deg);
   }
+}
+
+.taskDate {
+  margin-right: 12px !important;
+  font-size: 13px !important;
+  font-weight: bold !important;
+}
+
+.folderItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

@@ -9,9 +9,7 @@ try {
     $db = new PDO("{$RDBMS}:host=$hostName;dbname=$dbName;charset=utf8mb4",$userName,$pass);
     
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-    // echo "successfully connected to {$dbName} database :)".PHP_EOL;
-    
+        
 } catch (PDOException $pdoErr) {
     
     diePage("error {$pdoErr->getCode()}: 
@@ -21,3 +19,4 @@ try {
 // check connection
 include BASE_PATH."libs/lib-auth.php";
 include BASE_PATH."libs/lib-Tasks.php";
+
